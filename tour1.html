@@ -16,6 +16,17 @@
       <a href="galerie.html">Galerie</a>
       <a href="about.html">Über mich</a>
     </nav>
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- GPX Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
   </header>
 
   <!-- Hauptinhalt -->
@@ -34,7 +45,28 @@
     <p>Das Ziel von Tag 1 war erreicht und einem gemütlichen Hüttenabend stand nichts mehr im Wege</p>
     <!-- Platzhalterbild -->
     <img src="assets/img/placeholder1.jpg" alt="Blick auf den Hochkönig">
+    <!-- Start einfügen GPS Datei </-->
+    <section>
+      <h3>Kartenansicht</h3>
+      <div id="map" style="height: 400px; width: 100%; border-radius: 12px;"></div>
+      <script>
+         // Karte initialisieren
+         const map = L.map('map');
 
+         // OpenStreetMap Tiles
+         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+           attribution: '&copy; OpenStreetMap-Mitwirkende'
+         }).addTo(map);
+
+         // GPX Track laden
+         new L.GPX('GPXDatein/Gleinkersse-Zellerhütte.gpx', { async: true })
+           .on('loaded', function(e) {
+             map.fitBounds(e.target.getBounds()); // Zoom auf GPX-Track
+           })
+           .addTo(map);
+       </script>
+    </section>
+    <!-- Ende einfügen GPS Datei </-->
     <!-- Weitere Details / Highlights -->
     <section>
       <h4>Details der Tour</h4>
