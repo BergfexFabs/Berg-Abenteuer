@@ -43,8 +43,9 @@
     <p>Von dort aus geht es dann anfangs relativ entspannt durch den Wald aufwärts.</p>
     <p>Nach ca. 1,5h Stunden wird es dann leicht steiler und auch felsiger bis man schlussendlich die Zellerhütte erreicht</p>
     <p>Das Ziel von Tag 1 war erreicht und einem gemütlichen Hüttenabend stand nichts mehr im Wege</p>
-    <!-- Platzhalterbild -->
-    <img src="assets/img/placeholder1.jpg" alt="Blick auf den Hochkönig">
+    <!-- Bild einfügen -->
+    <!--<img src="assets/img/placeholder1.jpg" alt="Blick auf den Hochkönig">-->
+    
     <!-- Start einfügen GPX Datei </-->
     <section>
       <h4>Kartenansicht</h4>
@@ -59,7 +60,7 @@
          }).addTo(map);
 
          // GPX Track laden
-         new L.GPX('tracks/Gleinkersee-Zellerhütte.gpx', { async: true })
+         new L.GPX('Gleinkersee-Zellerhütte.gpx', { async: true })
            .on('loaded', function(e) {
              map.fitBounds(e.target.getBounds()); // Zoom auf GPX-Track
            })
