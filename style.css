@@ -1,57 +1,83 @@
+/* === Grundlayout === */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: #f4f4f9;
+  color: #222;
 }
 
+/* === Header === */
 header {
-  background: #2d3e50;
+  background: #0b1220;
   color: white;
-  padding: 1rem;
+  padding: 20px;
   text-align: center;
+}
+
+header h1 {
+  margin: 0 0 15px;
+  font-size: 1.8rem;
+}
+
+/* === Navigation === */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 nav a {
-  color: white;
-  margin: 0 10px;
+  color: #cbd5e1;
   text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
 }
 
 nav a:hover {
-  text-decoration: underline;
-}
-
-main {
-  padding: 2rem;
-}
-
-footer {
-  background: #2d3e50;
+  background: #1e293b;
   color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
 }
 
+/* Aktiver Link (manuell setzen mit aria-current) */
+nav a[aria-current="page"] {
+  background: #334155;
+  color: white;
+}
+
+/* === Buttons für Touren === */
 .tour-liste {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 12px;
+  max-width: 400px;
+  margin: 30px auto;
 }
 
 .btn {
-  display: inline-block;
-  background: #2d3e50;
+  display: block;
+  background: #0ea5e9;
   color: white;
-  padding: 10px;
   text-decoration: none;
+  padding: 12px;
   border-radius: 8px;
   text-align: center;
+  font-weight: bold;
+  transition: background 0.2s;
 }
 
 .btn:hover {
-  background: #1a252f;
+  background: #0284c7;
+}
+
+/* === Footer === */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  background: #eee;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
 }
