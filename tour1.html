@@ -59,7 +59,7 @@
          }).addTo(map);
 
          // GPX Track laden
-         new L.GPX('GPXDatein/tracks/Gleinkersee-Zellerhütte.gpx', { async: true })
+         new L.GPX('tracks/Gleinkersee-Zellerhütte.gpx', { async: true })
            .on('loaded', function(e) {
              map.fitBounds(e.target.getBounds()); // Zoom auf GPX-Track
            })
