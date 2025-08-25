@@ -45,7 +45,7 @@
     <p>Das Ziel von Tag 1 war erreicht und einem gemütlichen Hüttenabend stand nichts mehr im Wege</p>
     <!-- Platzhalterbild -->
     <img src="assets/img/placeholder1.jpg" alt="Blick auf den Hochkönig">
-    <!-- Start einfügen GPS Datei </-->
+    <!-- Start einfügen GPX Datei </-->
     <section>
       <h4>Kartenansicht</h4>
       <div id="map" style="height: 400px; width: 100%; border-radius: 12px;"></div>
@@ -59,7 +59,7 @@
          }).addTo(map);
 
          // GPX Track laden
-         new L.GPX('GPXDatein/tracks/Gleinkersse-Zellerhütte.gpx', { async: true })
+         new L.GPX('GPXDatein/tracks/Gleinkersee-Zellerhütte.gpx', { async: true })
            .on('loaded', function(e) {
              map.fitBounds(e.target.getBounds()); // Zoom auf GPX-Track
            })
