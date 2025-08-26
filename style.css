@@ -9,7 +9,7 @@ body {
 
 /* === Header === */
 header {
-  background-image: url('Bilder/header.jpg'); /* Pfad zu deinem Bild */
+  background-image: url('header.jpg'); /* Pfad zu deinem Bild */
   background-size: cover;       /* Bild füllt den gesamten Header aus */
   background-position: center;  /* zentriert das Bild */
   background-repeat: no-repeat; /* verhindert Wiederholung */
