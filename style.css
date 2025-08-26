@@ -17,12 +17,23 @@ header {
   padding: 100px 20px;           /* mehr Höhe für den Header */
   text-align: center;
 }
-/* ======================= große Überschrift ======================= */
+/* ======================= große Überschrift mit Kontorfarbe ======================= */
 header h1 {
   margin: 0 0 15px;
-  font-size: 2rem;                 /* größere Schrift */
-  color: white;                     /* Schriftfarbe */
-  -webkit-text-stroke: 2px black;  /* schwarze Kontur */
+  font-size: 3rem;        /* Schriftgröße */
+  color: white;            /* Schriftfarbe */
+  text-align: center;      /* optional, falls zentriert */
+  
+  /* Schwarze Kontur durch Text-Schatten in alle Richtungen */
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+    -2px  0px 0 #000,
+     2px  0px 0 #000,
+     0px -2px 0 #000,
+     0px  2px 0 #000;
 }
 /* ======================= haupt Navigation ======================= */
 nav {
