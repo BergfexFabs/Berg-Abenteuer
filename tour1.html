@@ -125,7 +125,12 @@
        ];
 
        tracks.forEach(file => {
-         new L.GPX(file, { async: true })
+         new L.GPX(file, { async: true
+         	   marker_options: {
+             startIconUrl: '',  // kein Start-Icon
+             endIconUrl: '',    // kein End-Icon
+             shadowUrl: ''      // kein Schatten
+             }})
            .on('loaded', function(e) {
              group.addLayer(e.target); // jeden Track zur FeatureGroup hinzufügen
              map.fitBounds(group.getBounds()); // Karte auf alle Tracks anpassen
