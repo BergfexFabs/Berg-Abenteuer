@@ -9,9 +9,12 @@ body {
 
 /* === Header === */
 header {
-  background: #0b1220;
+  background-image: url("Bilder/header-bg.jpg"); /* Pfad zu deinem Bild */
+  background-size: cover;       /* Bild füllt den gesamten Header aus */
+  background-position: center;  /* zentriert das Bild */
+  background-repeat: no-repeat; /* verhindert Wiederholung */
   color: white;
-  padding: 20px;
+  padding: 60px 20px;           /* mehr Höhe für den Header */
   text-align: center;
 }
 
