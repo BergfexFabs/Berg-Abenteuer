@@ -32,16 +32,18 @@ nav {
 }
 
 nav a {
-  color: black;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  color: black;                 /* Schriftfarbe */
+  background-color: white;      /* weißes Feld hinter der Schrift */
+  text-decoration: none;        /* keine Unterstreichung */
+  padding: 8px 12px;            /* Abstand innen */
+  border-radius: 6px;           /* abgerundete Ecken */
   transition: background 0.3s, color 0.3s;
+  border: 1px solid #ccc;       /* optional: leichter Rahmen */
 }
 
 nav a:hover {
   background: #1e293b;
-  color: black;
+  color: white;
 }
 /* ======================= XXX ======================= */
 /* Aktiver Link (manuell setzen mit aria-current) */
