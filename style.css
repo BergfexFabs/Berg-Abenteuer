@@ -7,7 +7,7 @@ body {
   color: #222;
 }
 
-/* === Header === */
+/* ======================= Header ======================= */
 header {
   background-image: url('header.jpg'); /* Pfad zu deinem Bild */
   background-size: cover;       /* Bild füllt den gesamten Header aus */
@@ -17,13 +17,13 @@ header {
   padding: 60px 20px;           /* mehr Höhe für den Header */
   text-align: center;
 }
-
+/* ======================= große Überschrift ======================= */
 header h1 {
   margin: 0 0 15px;
   font-size: 1.8rem;
 }
 
-/* === Navigation === */
+/* ======================= haupt Navigation ======================= */
 nav {
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@ nav {
 }
 
 nav a {
-  color: #cbd5e1;
+  color: black;
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 6px;
@@ -43,14 +43,14 @@ nav a:hover {
   background: #1e293b;
   color: black;
 }
-
+/* ======================= XXX ======================= */
 /* Aktiver Link (manuell setzen mit aria-current) */
 nav a[aria-current="page"] {
   background: #334155;
   color: black;
 }
 
-/* === Buttons für Touren === */
+/* ================== Buttons für Touren ======================= */
 .tour-liste {
   display: flex;
   flex-direction: column;
@@ -71,11 +71,12 @@ nav a[aria-current="page"] {
   transition: background 0.2s;
 }
 
+/* ================== XXX ======================= */
 .btn:hover {
   background: #0284c7;
 }
 
-/* === Footer === */
+/* ================== Fußzeile ======================= */
 footer {
   margin-top: 40px;
   padding: 20px;
@@ -85,6 +86,7 @@ footer {
   color: #555;
 }
 
+/* ================== Überschrift 2. Ordnung ======================= */
 h2 {
   font-size: 2rem;            /* größer als Standard */
   color: #0ea5e9;             /* helles Blau als Akzentfarbe */
@@ -94,7 +96,7 @@ h2 {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* leichter Schatten für Tiefe */
 }
 
-/* Überschriften H3 – Tourseiten Sektionen */
+/* ================== Überschrift 3. Ordnung ======================= */
 h3 {
   font-size: 1.4rem;                 /* etwas kleiner als H2 */
   color: #0284c7;                     /* dunkleres Blau als Akzent */
@@ -104,6 +106,7 @@ h3 {
   padding-bottom: 4px;                /* Abstand zwischen Text und Linie */
 }
 
+/* ================== Überschrift 4. Ordnung ======================= */
 h4 {
   font-size: 1.2rem;       /* kleiner als H3 */
   color: #0b1220;          /* dunkle Farbe für gute Lesbarkeit */
@@ -113,7 +116,7 @@ h4 {
   line-height: 1.3;        /* angenehmes Zeilenmaß */
 }
 
-/*----------------------------------Download Button-----------------------------------*/
+/* ================== Download Button der GPX Datein ======================= */
 .download-container {
   display: flex;            /* Buttons nebeneinander */
   gap: 16px;                /* Abstand zwischen Buttons */
@@ -135,3 +138,5 @@ h4 {
 .download-btn:hover {
   background-color: #0056b3; /* dunkleres Blau beim Hover */
 }
+
+/* ==================XXX ======================= */
