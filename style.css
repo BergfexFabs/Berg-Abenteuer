@@ -75,7 +75,8 @@ nav a[aria-current="page"] {
 
 /* ================== XXX ======================= */
 .btn:hover {
-  background: #0284c7;
+  background: #1e293b;
+  color: white;
 }
 
 /* ================== Fußzeile ======================= */
