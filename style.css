@@ -14,7 +14,7 @@ header {
   background-position: center;  /* zentriert das Bild */
   background-repeat: no-repeat; /* verhindert Wiederholung */
   color: white;
-  padding: 60px 20px;           /* mehr Höhe für den Header */
+  padding: 100px 20px;           /* mehr Höhe für den Header */
   text-align: center;
 }
 /* ======================= große Überschrift ======================= */
@@ -22,9 +22,10 @@ header h1 {
   margin: 0 0 15px;
   font-size: 1.8rem;
 }
-header a:hover {
-  background: #1e293b;
-  color: white;
+h1 {
+  color: white;                 /* Schriftfarbe */
+  -webkit-text-stroke: 2px black; /* Kontur: 1px dick, schwarz */
+  font-size: 3rem;
 }
 /* ======================= haupt Navigation ======================= */
 nav {
