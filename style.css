@@ -114,6 +114,12 @@ h4 {
 }
 
 /*----------------------------------Download Button-----------------------------------*/
+.download-container {
+  display: flex;            /* Buttons nebeneinander */
+  gap: 16px;                /* Abstand zwischen Buttons */
+  flex-wrap: wrap;          /* falls Bildschirm zu klein, umbrechen */
+  margin-top: 12px;
+}
 .download-btn {
   display: inline-block;
   padding: 12px 24px;
