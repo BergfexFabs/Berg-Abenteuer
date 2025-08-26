@@ -22,7 +22,10 @@ header h1 {
   margin: 0 0 15px;
   font-size: 1.8rem;
 }
-
+header a:hover {
+  background: #1e293b;
+  color: white;
+}
 /* ======================= haupt Navigation ======================= */
 nav {
   display: flex;
