@@ -158,16 +158,15 @@ h4 {
 
 #gallery img {
     width: 200px;
+    height: 200px;
     margin: 10px;
     border-radius: 8px;
     transition: transform 0.2s;
+    object-fit: cover; /* Bild wird zugeschnitten, bleibt quadratisch */
 }
 
 #gallery img:hover {
     transform: scale(1.05);
 }
-
-.hidden {
-    display: none;
-}
 /* ================= XXX======================= */
+
