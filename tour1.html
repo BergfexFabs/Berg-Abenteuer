@@ -101,26 +101,40 @@
       </ul>
     <!-- ------------------------------------------------------ Karte------------------------------------------->    
     <!-- Start einfügen GPX Datei </-->
-    <section>
-      <h4>Kartenansicht</h4>
-      <div id="map" style="height: 400px; width: 100%; border-radius: 12px;"></div>
-      <script>
-         // Karte initialisieren
-         const map = L.map('map');
+   <section>
+     <h4>Kartenansicht</h4>
+     <div id="map" style="height: 400px; width: 100%; border-radius: 12px;"></div>
 
-         // OpenStreetMap Tiles
-         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-           attribution: '&copy; OpenStreetMap-Mitwirkende'
-         }).addTo(map);
+     <script>
+       // Karte initialisieren
+       const map = L.map('map');
 
-         // GPX Track laden
-         new L.GPX('Gleinkersee-Zellerhütte.gpx', { async: true })
+       // OpenStreetMap Tiles
+       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+         attribution: '&copy; OpenStreetMap-Mitwirkende'
+       }).addTo(map);
+
+       // Alle geladenen Bounds sammeln
+       const group = new L.featureGroup();
+
+       // Mehrere GPX-Dateien einbinden
+       const tracks = [
+         "Gleinkersee-Zellerhütte.gpx",
+         "Tag2.gpx",
+         "Tag3.gpx"
+       ];
+
+       tracks.forEach(file => {
+         new L.GPX(file, { async: true })
            .on('loaded', function(e) {
-             map.fitBounds(e.target.getBounds()); // Zoom auf GPX-Track
+             group.addLayer(e.target); // jeden Track zur FeatureGroup hinzufügen
+             map.fitBounds(group.getBounds()); // Karte auf alle Tracks anpassen
            })
            .addTo(map);
-       </script>
-    </section>
+       });
+     </script>
+   </section>
+
     <!-- Ende einfügen GPS Datei </-->
     <!-- ------------------------------------------------------ Button zum Download der GPX-Datei------------------------------------------->  
     <section>
