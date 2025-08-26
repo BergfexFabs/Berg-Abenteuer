@@ -9,12 +9,12 @@ body {
 
 /* === Header === */
 header {
-  background-image: url("Bilder/header-bg.jpg"); /* Pfad zu deinem Bild */
-  background-size: cover;       /* Bild füllt den gesamten Header aus */
+  background-image: url("Bilder/header"); /* Pfad zu deinem Bild */
+  background-size: cover;       /* Bild fÃ¼llt den gesamten Header aus */
   background-position: center;  /* zentriert das Bild */
   background-repeat: no-repeat; /* verhindert Wiederholung */
   color: white;
-  padding: 60px 20px;           /* mehr Höhe für den Header */
+  padding: 60px 20px;           /* mehr HÃ¶he fÃ¼r den Header */
   text-align: center;
 }
 
@@ -50,7 +50,7 @@ nav a[aria-current="page"] {
   color: white;
 }
 
-/* === Buttons für Touren === */
+/* === Buttons fÃ¼r Touren === */
 .tour-liste {
   display: flex;
   flex-direction: column;
@@ -86,29 +86,29 @@ footer {
 }
 
 h2 {
-  font-size: 2rem;            /* größer als Standard */
+  font-size: 2rem;            /* grÃ¶ÃŸer als Standard */
   color: #0ea5e9;             /* helles Blau als Akzentfarbe */
   margin: 20px 0 16px;        /* Abstand oben und unten */
   text-align: center;         /* zentriert */
   font-weight: 700;           /* fett */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* leichter Schatten für Tiefe */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* leichter Schatten fÃ¼r Tiefe */
 }
 
-/* Überschriften H3 – Tourseiten Sektionen */
+/* Ãœberschriften H3 â€“ Tourseiten Sektionen */
 h3 {
   font-size: 1.4rem;                 /* etwas kleiner als H2 */
   color: #0284c7;                     /* dunkleres Blau als Akzent */
   margin: 16px 0 12px;                /* Abstand oben und unten */
   font-weight: 600;                   /* etwas weniger fett als H2 */
-  border-bottom: 2px solid #0ea5e9;   /* dezente Linie unter der Überschrift */
+  border-bottom: 2px solid #0ea5e9;   /* dezente Linie unter der Ãœberschrift */
   padding-bottom: 4px;                /* Abstand zwischen Text und Linie */
 }
 
 h4 {
   font-size: 1.2rem;       /* kleiner als H3 */
-  color: #0b1220;          /* dunkle Farbe für gute Lesbarkeit */
+  color: #0b1220;          /* dunkle Farbe fÃ¼r gute Lesbarkeit */
   margin: 14px 0 10px;     /* Abstand oben und unten */
   font-weight: 600;        /* leicht fett */
-  text-align: left;        /* linksbündig, passt gut für Details */
-  line-height: 1.3;        /* angenehmes Zeilenmaß */
+  text-align: left;        /* linksbÃ¼ndig, passt gut fÃ¼r Details */
+  line-height: 1.3;        /* angenehmes ZeilenmaÃŸ */
 }
