@@ -20,7 +20,7 @@ header {
 /* ======================= große Überschrift mit Kontorfarbe ======================= */
 header h1 {
   margin: 0 0 15px;
-  font-size: 3rem;        /* Schriftgröße */
+  font-size: 10rem;        /* Schriftgröße */
   color: white;            /* Schriftfarbe */
   text-align: center;      /* optional, falls zentriert */
   
