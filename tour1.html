@@ -151,8 +151,35 @@
 </section> 
     
     <!-- ------------------------------------------------------ Bilder-------------------------------------------> 
-    <!-- Bild einfügen -->
-    <!--<img src="assets/img/placeholder1.jpg" alt="Blick auf den Hochkönig">-->
+    <section>
+      <h4>Galerie</h4>
+      <button id="openGallery">Galerie öffnen</button>
+      <div id="gallery" class="hidden"></div>
+    </section>
+    
+   <script>
+      const gallery = document.getElementById('gallery');
+      const button = document.getElementById('openGallery');
+
+      button.addEventListener('click', async () => {
+          if (!gallery.dataset.loaded) {  // Bilder nur einmal laden
+              const response = await fetch('images.json');
+              const images = await response.json();
+
+              images.forEach(src => {
+                  const img = document.createElement('img');
+                  img.src = src;
+                  img.alt = "Tourbild";
+                  gallery.appendChild(img);
+              });
+              gallery.dataset.loaded = true;
+          }
+          gallery.classList.toggle('hidden'); // zeigt/versteckt Galerie
+      });
+   </script>
+
+
+    
     <!-- ------------------------------------------------------ Ende-------------------------------------------> 
     <!-- Button zurück zur Tourenübersicht -->
     <div class="tour-liste">
