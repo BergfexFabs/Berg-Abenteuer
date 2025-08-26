@@ -47,10 +47,10 @@ nav a:hover {
 }
 /* ======================= XXX ======================= */
 /* Aktiver Link (manuell setzen mit aria-current) */
-nav a[aria-current="page"] {
+/*nav a[aria-current="page"] {
   background: #334155;
   color: black;
-}
+}*/
 
 /* ================== Buttons für Touren ======================= */
 .tour-liste {
