@@ -20,7 +20,7 @@ header {
 /* ======================= Hintergrundbild im Header für Geisswand anpassen ======================= */
 body.geisswand header {
   background-image: url('assets/Geisswand/Geisswand.jpg'); /* Pfad zu deinem Bild */
-  background-size: cover;       /* Bild füllt den gesamten Header aus */
+  background-size: contain;       /* Bild füllt den gesamten Header aus cover--> füllt header komplett aus; contain --> seigt ganzes Bild an*/  
   background-position: center;  /* zentriert das Bild */
   background-repeat: no-repeat; /* verhindert Wiederholung */
   color: white;
