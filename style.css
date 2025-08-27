@@ -158,28 +158,64 @@ h4 {
 }
 
 /* ================== Galerie ======================= */
-#gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
+/* Galerie als Grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 15px;
 }
 
 #gallery img {
-  width: 200px;
-  height: 200px;
-  margin: 10px;
-  border-radius: 8px;
-  transition: transform 0.2s, opacity 0.3s;
+  width: 100%;
+  height: 150px;
   object-fit: cover;
-  opacity: 0;
-  animation: fadeIn 0.8s ease forwards;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 #gallery img:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
 }
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Optional: Scrollbar für mobile Geräte */
+@media (max-width: 500px) {
+  #gallery img {
+    height: 120px;
+  }
+}
+/* ================== XXXX ======================= */

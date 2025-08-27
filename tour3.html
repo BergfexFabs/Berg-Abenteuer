@@ -111,32 +111,63 @@
     
     <!-- ------------------------------------------------------ Bilder------------------------------------------>  
 
-    <section>
-      <h4>Galerie</h4>
-      <button id="openGallery">Galerie öffnen</button>
-      <div id="gallery" class="hidden"></div>
-    </section>
-    
-   <script>
-      const gallery = document.getElementById('gallery');
-      const button = document.getElementById('openGallery');
+<!-- ------------------------------------------------------ Bilder------------------------------------------>  
+<section>
+  <h4>Galerie</h4>
+  <button id="openGallery">Galerie öffnen</button>
+  <div id="gallery" class="hidden gallery-grid"></div>
+</section>
 
-      button.addEventListener('click', async () => {
-          if (!gallery.dataset.loaded) {  // Bilder nur einmal laden
-              const response = await fetch('assets/Katzenstein/images.json');
-              const images = await response.json();
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
 
-              images.forEach(src => {
-                  const img = document.createElement('img');
-                  img.src = src;
-                  img.alt = "Tourbild";
-                  gallery.appendChild(img);
-              });
-              gallery.dataset.loaded = true;
-          }
-          gallery.classList.toggle('hidden'); // zeigt/versteckt Galerie
-      });
-   </script>
+<!-- JS am Ende des Bodys einfügen -->
+<script>
+const gallery = document.getElementById('gallery');
+const button = document.getElementById('openGallery');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.close');
+
+button.addEventListener('click', async () => {
+    if (!gallery.dataset.loaded) {  // Bilder nur einmal laden
+        const response = await fetch('assets/Katzenstein/images.json');
+        const images = await response.json();
+
+        images.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = "Tourbild";
+
+            // Klick auf Bild öffnet Lightbox
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'block';
+                lightboxImg.src = img.src;
+            });
+
+            gallery.appendChild(img);
+        });
+        gallery.dataset.loaded = true;
+    }
+    gallery.classList.toggle('hidden'); // zeigt/versteckt Galerie
+});
+
+// Lightbox schließen
+closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+// Auch schließen, wenn man außerhalb des Bildes klickt
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
+</script>
+
     
     <!-- ------------------------------------------------------ Ende-------------------------------------------> 
     <!-- Button zurück zur Tourenübersicht -->
