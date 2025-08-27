@@ -76,7 +76,7 @@
 
        // Mehrere GPX-Dateien einbinden
        const tracks = [
-         "assets/Geißwand/Geißwand.gpx"
+         "assets/Geisswand/Geisswand.gpx"
        ];
 
        tracks.forEach(file => {
@@ -114,7 +114,7 @@
 
       button.addEventListener('click', async () => {
           if (!gallery.dataset.loaded) {  // Bilder nur einmal laden
-              const response = await fetch('assets/Geißwand/images.json');
+              const response = await fetch('assets/Geisswand/images.json');
               const images = await response.json();
 
               images.forEach(src => {
