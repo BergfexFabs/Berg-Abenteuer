@@ -4,7 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tourenberichte – Meine Bergabenteuer</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 10px;
+    }
+    header, footer {
+      text-align: center;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .tour-liste {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px;
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #34495e;
+    }
+    form {
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    input, textarea, button {
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      font-size: 14px;
+    }
+    .comment {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      background: #f9f9f9;
+    }
+    .comment small {
+      color: #666;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -28,10 +87,56 @@
       <!--<a class="btn" href="tour4.html">Tour 4 – Dachstein</a>-->
       <!--<a class="btn" href="tour5.html">Tour 5 – Karwendel</a>-->
     </div>
+
+    <h2>Feedback & Kommentare</h2>
+    <form id="commentForm">
+      <input type="text" id="name" placeholder="Dein Name" required>
+      <textarea id="message" placeholder="Dein Feedback" required></textarea>
+      <button type="submit">Absenden</button>
+    </form>
+
+    <h3>Bisherige Kommentare:</h3>
+    <div id="comments"></div>
   </main>
 
   <footer>
     <p>&copy; 2025 – Meine Bergabenteuer</p>
   </footer>
+
+  <script>
+    async function loadComments() {
+      try {
+        let response = await fetch("comments.json");
+        let comments = await response.json();
+        let container = document.getElementById("comments");
+        container.innerHTML = "";
+        comments.forEach(c => {
+          let div = document.createElement("div");
+          div.className = "comment";
+          div.innerHTML = `<strong>${c.name}</strong><br>${c.message}<br><small>${c.date}</small>`;
+          container.appendChild(div);
+        });
+      } catch (e) {
+        console.log("Keine Kommentare gefunden.");
+      }
+    }
+
+    document.getElementById("commentForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      let name = document.getElementById("name").value;
+      let message = document.getElementById("message").value;
+
+      await fetch("save_comment.php", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ name, message })
+      });
+
+      document.getElementById("commentForm").reset();
+      loadComments();
+    });
+
+    loadComments();
+  </script>
 </body>
 </html>
