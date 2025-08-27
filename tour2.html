@@ -114,7 +114,7 @@
 
       button.addEventListener('click', async () => {
           if (!gallery.dataset.loaded) {  // Bilder nur einmal laden
-              const response = await fetch('images1.json');
+              const response = await fetch('assets/Geißwand/images.json');
               const images = await response.json();
 
               images.forEach(src => {
