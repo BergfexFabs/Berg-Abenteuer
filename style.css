@@ -27,6 +27,16 @@ body.geisswand header {
   padding: 100px 20px;           /* mehr Höhe für den Header */
   text-align: center;
 }
+/* ======================= Hintergrundbild im Header für Warwscheneck anpassen ======================= */
+body.Warscheneck header {
+  background-image: url('assets/Warscheneck/Bild1.jpg'); /* Pfad zu deinem Bild */
+  background-size: cover;       /* Bild füllt den gesamten Header aus cover--> füllt header komplett aus; contain --> seigt ganzes Bild an*/  
+  background-position: center;  /* zentriert das Bild */
+  background-repeat: no-repeat; /* verhindert Wiederholung */
+  color: white;
+  padding: 100px 20px;           /* mehr Höhe für den Header */
+  text-align: center;
+}
 /* ======================= große Überschrift mit Kontorfarbe ======================= */
 header h1 {
   margin: 0 0 15px;
