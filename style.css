@@ -1,17 +1,44 @@
 /* === Grundlayout === */
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Body mindestens Bildschirmhöhe */
+  margin: 0;
   font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
   line-height: 1.7;
   color: #1e293b;
-  background-color: #f0f4f8; /* fallback */
+  background-color: #f0f4f8; /* neutraler Body-Hintergrund */
+}
+
+/* ======================= Header ======================= */
+header {
+  width: 100%;
+  height: 400px;           /* feste Höhe */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+/* Overlay für bessere Lesbarkeit des Textes */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+header h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  font-style: italic;
+  margin: 0;
 }
 
 /* ================= Seiten-spezifische Header-Bilder ================= */
@@ -26,39 +53,6 @@ body.katzenstein header {
 }
 body.Sonnstein header {
   background-image: url('assets/Sonnstein/Bild1.jpg');
-}
-
-/* ======================= Header ======================= */
-header {
-  background: rgba(0,0,0,0.2);
-  color: white;
-  height: 400px; /* feste Höhe */
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-header > * {
-  position: relative;
-  z-index: 2;
-}
-
-header h1 {
-  margin: 0 0 15px;
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-  font-style: italic;
-  padding-top: 120px;
-}
-
-/* ======================= Hauptinhalt ======================= */
-main {
-  flex: 1; /* nimmt den verbleibenden Platz ein */
 }
 
 /* ======================= Info Box ======================= */
@@ -213,10 +207,12 @@ h4 {
 
 /* ================== Fußzeile ======================= */
 footer {
+  margin-top: 50px;
   padding: 20px;
   background: #1e293b;
-  color: #e2e8f0;
   text-align: center;
+  font-size: 0.9rem;
+  color: #e2e8f0;
 }
 
 /* ================== Responsive Anpassungen ======================= */
@@ -226,7 +222,6 @@ footer {
   }
   header h1 {
     font-size: 2rem;
-    padding-top: 80px;
   }
 
   .info-box {
