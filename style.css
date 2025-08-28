@@ -13,7 +13,7 @@ body {
   background-size: cover; /* proportional skalieren */
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* bleibt beim Scrollen stehen */
+  background-attachment: fixed; /* fixiertes Hintergrundbild beim Scrollen */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -212,7 +212,7 @@ h4 {
 
 /* === Fußzeile immer unten === */
 footer {
-  margin-top: auto; /* ganz unten bei wenig Inhalt */
+  margin-top: auto;
   padding: 20px;
   background: #1e293b;
   text-align: center;
