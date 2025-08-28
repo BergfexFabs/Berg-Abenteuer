@@ -1,10 +1,17 @@
 /* === Grundlayout === */
-body {
+html, body {
+  height: 100%;
   margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Body mindestens Bildschirmhöhe */
   font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
   line-height: 1.7;
   color: #1e293b;
-  background-color: #f0f4f8; /* fallback, Body hat keinen Hintergrund mehr */
+  background-color: #f0f4f8; /* fallback */
 }
 
 /* ================= Seiten-spezifische Header-Bilder ================= */
@@ -47,6 +54,11 @@ header h1 {
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
   font-style: italic;
   padding-top: 120px;
+}
+
+/* ======================= Hauptinhalt ======================= */
+main {
+  flex: 1; /* nimmt den verbleibenden Platz ein */
 }
 
 /* ======================= Info Box ======================= */
@@ -201,12 +213,10 @@ h4 {
 
 /* ================== Fußzeile ======================= */
 footer {
-  margin-top: 50px;
   padding: 20px;
   background: #1e293b;
-  text-align: center;
-  font-size: 0.9rem;
   color: #e2e8f0;
+  text-align: center;
 }
 
 /* ================== Responsive Anpassungen ======================= */
