@@ -1,203 +1,168 @@
 /* === Grundlayout === */
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  background: #f4f4f9;
-  color: #222;
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  background: #f9fafb;
+  color: #1e293b;
 }
 
 /* ======================= Header ======================= */
 header {
-  background-image: url('header.jpg'); /* Pfad zu deinem Bild */
-  background-size: cover;       /* Bild füllt den gesamten Header aus */
-  background-position: center;  /* zentriert das Bild */
-  background-repeat: no-repeat; /* verhindert Wiederholung */
+  background-image: url('header.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
-  padding: 100px 20px;           /* mehr Höhe für den Header */
+  padding: 100px 20px;
   text-align: center;
+  position: relative;
 }
-/* ======================= Hintergrundbild im Header für Geisswand anpassen ======================= */
-body.geisswand header {
-  background-image: url('assets/Geisswand/Geisswand.jpg'); /* Pfad zu deinem Bild */
-  background-size: cover;       /* Bild füllt den gesamten Header aus cover--> füllt header komplett aus; contain --> seigt ganzes Bild an*/  
-  background-position: center;  /* zentriert das Bild */
-  background-repeat: no-repeat; /* verhindert Wiederholung */
-  color: white;
-  padding: 100px 20px;           /* mehr Höhe für den Header */
-  text-align: center;
+
+/* Halbtransparenter Overlay für bessere Lesbarkeit */
+header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
 }
-/* ======================= Hintergrundbild im Header für Warwscheneck anpassen ======================= */
-body.Warscheneck header {
-  background-image: url('assets/Warscheneck/Bild1.jpg'); /* Pfad zu deinem Bild */
-  background-size: cover;       /* Bild füllt den gesamten Header aus cover--> füllt header komplett aus; contain --> seigt ganzes Bild an*/  
-  background-position: center;  /* zentriert das Bild */
-  background-repeat: no-repeat; /* verhindert Wiederholung */
-  color: white;
-  padding: 100px 20px;           /* mehr Höhe für den Header */
-  text-align: center;
-}
-/* ======================= Hintergrundbild im Header für Warwscheneck anpassen ======================= */
-body.katzenstein header {
-  background-image: url('assets/Katzenstein/Katzenstein.jpg'); /* Pfad zu deinem Bild */
-  background-size: cover;       /* Bild füllt den gesamten Header aus cover--> füllt header komplett aus; contain --> seigt ganzes Bild an*/  
-  background-position: center;  /* zentriert das Bild */
-  background-repeat: no-repeat; /* verhindert Wiederholung */
-  color: white;
-  padding: 100px 20px;           /* mehr Höhe für den Header */
-  text-align: center;
-}
-/* ======================= große Überschrift mit Kontorfarbe ======================= */
+
 header h1 {
-	font-style: italic;
+  position: relative;
+  z-index: 2;
   margin: 0 0 15px;
-  font-size: 3rem;        /* Schriftgröße */
-  color: white;            /* Schriftfarbe */
-  text-align: center;      /* optional, falls zentriert */
-  
-  /* Schwarze Kontur durch Text-Schatten in alle Richtungen */
-  text-shadow:
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000,
-    -1px  0px 0 #000,
-     1px  0px 0 #000,
-     0px -1px 0 #000,
-     0px  1px 0 #000;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
-/* ======================= haupt Navigation ======================= */
+
+/* ======================= Navigation ======================= */
 nav {
   display: flex;
   justify-content: center;
   gap: 15px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 nav a {
-  color: black;                 /* Schriftfarbe */
-  background-color: white;      /* weißes Feld hinter der Schrift */
-  text-decoration: none;        /* keine Unterstreichung */
-  padding: 8px 12px;            /* Abstand innen */
-  border-radius: 6px;           /* abgerundete Ecken */
-  transition: background 0.3s, color 0.3s;
-  border: 1px solid #ccc;       /* optional: leichter Rahmen */
+  color: #1e293b;
+  background-color: #fff;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
 nav a:hover {
-  background: #1e293b;
+  background: #0ea5e9;
   color: white;
+  transform: translateY(-2px);
 }
 
 /* ================== Buttons für Touren ======================= */
 .tour-liste {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-width: 400px;
-  margin: 30px auto;
+  gap: 14px;
+  max-width: 420px;
+  margin: 40px auto;
 }
 
 .btn {
   display: block;
-  background: #0ea5e9;
-  color: black;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
   text-decoration: none;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 14px;
+  border-radius: 10px;
   text-align: center;
-  font-weight: bold;
-  transition: background 0.2s;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
 
-/* ================== XXX ======================= */
 .btn:hover {
-  background: #1e293b;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  transform: scale(1.03);
+}
+
+/* ================== Tour-Info Box ======================= */
+.info-box {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.info-box h3 {
+  margin-top: 0;
+  color: #0284c7;
+  border-bottom: 2px solid #0ea5e9;
+  padding-bottom: 6px;
+}
+
+/* ================== Download Buttons ======================= */
+.download-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #007BFF, #0056b3);
   color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #1e293b);
+  transform: translateY(-2px);
+}
+
+/* ================= Galerie ======================= */
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px auto;
+  gap: 16px;
+}
+
+#gallery img {
+  width: 220px;
+  height: 220px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#gallery img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
 }
 
 /* ================== Fußzeile ======================= */
 footer {
-  margin-top: 40px;
+  margin-top: 50px;
   padding: 20px;
-  background: #eee;
+  background: #1e293b;
   text-align: center;
   font-size: 0.9rem;
-  color: #555;
+  color: #e2e8f0;
 }
-
-/* ================== Überschrift 2. Ordnung ======================= */
-h2 {
-  font-size: 2rem;            /* größer als Standard */
-  color: #0ea5e9;             /* helles Blau als Akzentfarbe */
-  margin: 20px 0 16px;        /* Abstand oben und unten */
-  text-align: center;         /* zentriert */
-  font-weight: 700;           /* fett */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* leichter Schatten für Tiefe */
-}
-
-/* ================== Überschrift 3. Ordnung ======================= */
-h3 {
-  font-size: 1.4rem;                 /* etwas kleiner als H2 */
-  color: #0284c7;                     /* dunkleres Blau als Akzent */
-  margin: 16px 0 12px;                /* Abstand oben und unten */
-  font-weight: 600;                   /* etwas weniger fett als H2 */
-  border-bottom: 2px solid #0ea5e9;   /* dezente Linie unter der Überschrift */
-  padding-bottom: 4px;                /* Abstand zwischen Text und Linie */
-}
-
-/* ================== Überschrift 4. Ordnung ======================= */
-h4 {
-  font-size: 1.2rem;       /* kleiner als H3 */
-  color: #0b1220;          /* dunkle Farbe für gute Lesbarkeit */
-  margin: 14px 0 10px;     /* Abstand oben und unten */
-  font-weight: 600;        /* leicht fett */
-  text-align: left;        /* linksbündig, passt gut für Details */
-  line-height: 1.3;        /* angenehmes Zeilenmaß */
-}
-
-/* ================== Download Button der GPX Datein ======================= */
-.download-container {
-  display: flex;            /* Buttons nebeneinander */
-  gap: 16px;                /* Abstand zwischen Buttons */
-  flex-wrap: wrap;          /* falls Bildschirm zu klein, umbrechen */
-  margin-top: 12px;
-}
-.download-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #007BFF; /* Blau */
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s;
-}
-
-.download-btn:hover {
-  background-color: #0056b3; /* dunkleres Blau beim Hover */
-}
-
-/* ================= Galerie Warscheneck ======================= */
-#gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-#gallery img {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-    border-radius: 8px;
-    transition: transform 0.2s;
-    object-fit: cover; /* Bild wird zugeschnitten, bleibt quadratisch */
-}
-
-#gallery img:hover {
-    transform: scale(1.05);
-}
-/* ================= XXX======================= */
-
