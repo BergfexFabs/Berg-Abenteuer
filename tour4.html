@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geißwand | Meine Bergabenteuer</title>
+  <title>Kleiner und Großer Sonnstein | Meine Bergabenteuer</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="geisswand">   <!-- durch class= wird das Hintergrundbild auf der Geisswandseite abgeändert, Klasse muss im style konfiguriert sein-->
+<body class="Sonnstein">   <!-- durch class= wird das Hintergrundbild auf der Geisswandseite abgeändert, Klasse muss im style konfiguriert sein-->
   <!-- Header -->
   <header>
-    <h1>Geißwand</h1>
+    <h1>Kleiner und Großer Sonnstein</h1>
     <nav>
       <a href="index.html">Start</a>
       <a href="touren.html" aria-current="page">Tourenberichte</a>
@@ -33,25 +33,40 @@
   <main>
     <!--<h2>Tour 1 – Hochkönig</h2>   so wird eine Überschrift 2. Ordnung geschrieben, mit h3 wird es zu einer 3. Ordnung--> 
     <!-- <p></p> so wird eine normale Zeile eingefügt -->
-    <!--<h3>Geißwand</h3>-->
+    <!--<h3>Katzenstein via Grünberg</h3>-->
     
-    <p>Ausgangspunkt ist in Traunkirchen. Von Gmunden kommend vor dem Geißwandtunnel links abbiegen und Richtung Traunkirchen fahren.</p>
-    <p>Nach 1-2 km sieht man links auf der Seeseite einen kostenpflichtigen Parkplatz bei dem man allerdings auch rechts in eine 180° Kehre einbiegen kann</p>
-    <p>Die Schotterstraße kurz hochfahren und schon ist man auf einem gebührenfreien Parkplatz</p>
-    <p>Vom Parkplatz aus nach rechts in den Wald gehen erreicht man gleich einen Wanderweg</p>
-    <p>Anfangs ist der Weg relativ steil bis man zu einer kleinen Kapelle kommt. Dort hält man sich dann rechts. Hier wird der Weg erstmal immer flacher</p>
-    <p>Bei der beschilderten Abzweigung, welche links in den Wald hinaufführt wird der Weg erneut steiler</p>
-    <p>Kurz vor dem Gipfel erreicht man eine atemberaubende Felswand mit einigen Kletterrouten</p>
-    <p>Danach sind es nur noch wenige Meter bis man schließlich noch eine kurze Kraxxlpassage erreicht welche direkt zum kleinen, aber feinem Gipfelkreuz führt.</p>
+   <section class="info-box">
+      <h3>Route</h3>
+      <ol>
+        <li>
+          <strong>Aufstieg zum Kleinen Sonnstein (923 m):</strong><br>
+          Start in Traunkirchen-Siegesbach bei der Brücke. Steiler Waldpfad über viele Stufen,
+          vorbei am Bildstock „Dreifaltigkeit“, weiter zur Sonnsteinhütte und in wenigen Minuten zum Gipfel.
+        </li>
+        <li>
+          <strong>Übergang zum Großen Sonnstein (1.037 m):</strong><br>
+          Markierter Steig über den Grat, teilweise ausgesetzt.
+        </li>
+        <li>
+          <strong>Abstieg nach Siegesbach:</strong><br>
+          Abstieg nach Norden, dann durch den Wald zurück auf den bekannten Aufstiegsweg.
+        </li>
+      </ol>
+    </section>
+    
+    
     <!-- Weitere Details / Highlights -->
     <section>
       <h4>Details der Tour</h4>
       <ul>
-        <li>Höhenmeter: 470 m</li>
-        <li>Länge: 3,7 km</li>
-        <li>Dauer: 1,5 Stunden Auf und Abstieg</li>
-        <li>Schwierigkeit: leicht</li>
-        <li>Beste Jahreszeit: Frühling, Sommer, Herbst</li>
+        <li>Parkmöglichkeit: Siegesbach 17, 4801 Traunkirchen</li>
+        <li>Höhenmeter: 820 m</li>
+        <li>Länge: 3.5 km</li>
+        <li>Dauer Fortgeschritten: 1.5 Stunden</li>
+        <li>Dauer Anfänger: 2.5 Stunden</li>
+        <li>Schwierigkeit: mittel, Trittsicherheit erforderlich</li>
+        <li>Beste Jahreszeit: Frühling - Herbst</li>
+        <li>Einkehrmöglichkeit: Sonnsteinhütte</li>
       </ul>
     </section>
     <!-- --------------------------------------------------------------- Tag2 --------------------------->
@@ -76,7 +91,7 @@
 
        // Mehrere GPX-Dateien einbinden
        const tracks = [
-         "assets/Geisswand/Geisswand.gpx"
+         "assets/Sonnstein/Sonnstein.gpx"
        ];
 
        tracks.forEach(file => {
@@ -97,8 +112,8 @@
     <!-- es wird 1 Button angezeigt -->
  <h4>Downloads</h4>
   <div class="download-container">
-    <a href="assets/Geisswand/Geisswand.gpx" download class="download-btn">GPX Tag 1</a>
-    <a href="assets/Geisswand/Geisswand.kml" download class="download-btn">KML Tag 1</a>
+    <a href="assets/Sonnstein/Sonnstein.gpx" download class="download-btn">GPX</a>
+    <a href="assets/Sonnstein/Sonnstein.kml" download class="download-btn">KML</a>
   </div>
     
     <!-- ------------------------------------------------------ Bilder------------------------------------------>  
@@ -115,7 +130,7 @@
 
       button.addEventListener('click', async () => {
           if (!gallery.dataset.loaded) {  // Bilder nur einmal laden
-              const response = await fetch('assets/Geisswand/images.json');
+              const response = await fetch('assets/Sonnstein/images.json');
               const images = await response.json();
 
               images.forEach(src => {

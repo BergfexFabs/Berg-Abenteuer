@@ -29,7 +29,9 @@ body.Warscheneck header {
 body.katzenstein header {
   background-image: url('assets/Katzenstein/Katzenstein.jpg');
 }
-
+body.Sonnstein header {
+  background-image: url('assets/Sonnstein/Bild1.jpg');
+}
 /* Halbtransparenter Overlay für bessere Lesbarkeit */
 header::after {
   content: "";
