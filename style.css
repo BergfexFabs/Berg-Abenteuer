@@ -4,44 +4,30 @@ body {
   font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
   line-height: 1.7;
   color: #1e293b;
-
-  /* Standard-Hintergrund für alle Seiten */
-  background-image: 
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)),
-    url('header.jpg'); /* Standardbild */
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('header.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* ================= Seiten-spezifische Hintergründe ================= */
 body.geisswand {
-  background-image: 
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)),
-    url('assets/Geisswand/Geisswand.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('assets/Geisswand/Geisswand.jpg');
 }
-
 body.Warscheneck {
-  background-image: 
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)),
-    url('assets/Warscheneck/Bild1.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('assets/Warscheneck/Bild1.jpg');
 }
-
 body.katzenstein {
-  background-image: 
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)),
-    url('assets/Katzenstein/Katzenstein.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('assets/Katzenstein/Katzenstein.jpg');
 }
-
 body.Sonnstein {
-  background-image: 
-    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)),
-    url('assets/Sonnstein/Bild1.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('assets/Sonnstein/Bild1.jpg');
 }
 
 /* ======================= Header ======================= */
 header {
-  background: rgba(0,0,0,0.2); /* leichter Overlay über Text */
+  background: rgba(0,0,0,0.2);
   color: white;
   padding: 100px 20px;
   text-align: center;
@@ -62,9 +48,9 @@ header h1 {
   font-style: italic;
 }
 
-/* ======================= Info Box hervorheben ======================= */
+/* ======================= Info Box ======================= */
 .info-box {
-  background: white;      /* undurchsichtig, verdeckt das Bild */
+  background: white;
   border-radius: 12px;
   padding: 20px;
   margin: 20px auto;
@@ -220,4 +206,40 @@ footer {
   text-align: center;
   font-size: 0.9rem;
   color: #e2e8f0;
+}
+
+/* ================== Responsive Anpassungen ======================= */
+@media (max-width: 768px) {
+  header {
+    padding: 60px 15px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .info-box {
+    padding: 15px;
+    margin: 15px 10px;
+  }
+
+  .tour-liste {
+    max-width: 100%;
+    margin: 20px 10px;
+  }
+
+  .btn, .download-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #gallery img {
+    width: 80vw;
+    height: auto;
+  }
 }
