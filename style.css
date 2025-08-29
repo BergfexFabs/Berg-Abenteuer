@@ -37,6 +37,11 @@ body::before {
   will-change: transform;
 }
 
+/* Spezielles Hintergrund-Verhalten für Mahdlgupf */
+body.Mahdlgupf::before {
+  background: url('assets/Mahdlgupf/Bild4.jpg') top center no-repeat; /* Fokus auf oberen Bereich */
+  background-size: contain; /* Bild vollständig sichtbar, keine Abschneidung */
+}
 /* Seiten-spezifische Hintergrundbilder */
 body.geisswand   { --site-bg: url('assets/Geisswand/Geisswand.jpg'); }
 body.Warscheneck { --site-bg: url('assets/Warscheneck/Bild1.jpg'); }
