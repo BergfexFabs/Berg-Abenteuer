@@ -228,7 +228,7 @@ h4 {
 
 .tour-image img {
   max-width: 100%;    /* Bild passt sich der Breite der Infobox an */
-  max-height: 400px;  /* Bild wird nicht zu hoch */
+  max-height: 600px;  /* Bild wird nicht zu hoch */
   width: auto;        /* Breite proportional */
   height: auto;       /* Höhe proportional */
   border-radius: 12px;
