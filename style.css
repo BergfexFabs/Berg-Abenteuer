@@ -5,7 +5,7 @@ html, body {
   font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
   line-height: 1.7;
   color: #1e293b;
-  background: transparent; /* wichtig: kein fixes body-Background */
+  background: transparent;
 }
 
 body {
@@ -15,18 +15,7 @@ body {
   position: relative;
 }
 
-/* Fixierter Hintergrund über html::before */
-html::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: var(--site-bg, url('header.jpg')) center/cover no-repeat;
-  z-index: -1;
-  pointer-events: none;
-  will-change: transform;
-}
-
-/* Overlay für etwas Abdunkelung */
+/* Fixierter Hintergrund mit GPU-Beschleunigung */
 body::before {
   content: "";
   position: fixed;
@@ -35,6 +24,17 @@ body::before {
   z-index: -1;
   pointer-events: none;
   will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Seiten-spezifische Hintergrundbilder */
@@ -258,5 +258,10 @@ footer {
   #gallery img {
     width: 80vw;
     height: auto;
+  }
+
+  /* Optimierung fixierter Hintergrund für mobile Geräte */
+  body::before {
+    transform: translate3d(0,0,0) scale(1.1); /* leicht vergrößern, um Ruckeln zu vermeiden */
   }
 }
