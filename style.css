@@ -42,7 +42,7 @@ body.geisswand   { --site-bg: url('assets/Geisswand/Geisswand.jpg'); }
 body.Warscheneck { --site-bg: url('assets/Warscheneck/Bild1.jpg'); }
 body.Sonnstein   { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
 body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein.jpg'); }
-
+body.Mahdlgupf { --site-bg: url('assets/Mahdlgupf/Bild4.jpg'); }
 /* === Header === */
 header {
   color: white;
