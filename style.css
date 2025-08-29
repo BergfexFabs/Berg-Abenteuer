@@ -5,7 +5,7 @@ html, body {
   font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
   line-height: 1.7;
   color: #1e293b;
-  background: transparent;
+  background: transparent; /* wichtig: kein fixes body-Background */
 }
 
 body {
@@ -15,32 +15,29 @@ body {
   position: relative;
 }
 
-/* === Fixierter Hintergrund als Container === */
-.bg-fixed {
+/* Fixierter Hintergrund über html::before */
+html::before {
+  content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: var(--site-bg, url('header.jpg')) center/cover no-repeat;
-  z-index: -2;
-  pointer-events: none;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-/* Overlay */
-.bg-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.3);
   z-index: -1;
   pointer-events: none;
+  will-change: transform;
 }
 
-/* === Seiten-spezifische Hintergrundbilder === */
+/* Overlay für etwas Abdunkelung */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--site-bg, url('header.jpg')) center/cover no-repeat;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Seiten-spezifische Hintergrundbilder */
 body.geisswand   { --site-bg: url('assets/Geisswand/Geisswand.jpg'); }
 body.Warscheneck { --site-bg: url('assets/Warscheneck/Bild1.jpg'); }
 body.Sonnstein   { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
