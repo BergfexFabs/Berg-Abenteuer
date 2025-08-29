@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahdlgupf | Meine Bergabenteuer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="Mahdlgupf">   <!-- durch class= wird das Hintergrundbild auf der Geisswandseite abgeändert, Klasse muss im style konfiguriert sein-->
+  <!-- Header -->
+  <header>
+    <h1>Mahdlgupf</h1>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="touren.html" aria-current="page">Tourenberichte</a>
+      <!--<a href="galerie.html">Galerie</a>-->
+      <a href="about.html">Über mich</a>
+    </nav>
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- GPX Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.7.0/gpx.min.js"></script>
+  </header>
+
+  <!-- Hauptinhalt -->
+  <main>
+    <!--<h2>Tour 1 – Hochkönig</h2>   so wird eine Überschrift 2. Ordnung geschrieben, mit h3 wird es zu einer 3. Ordnung--> 
+    <!-- <p></p> so wird eine normale Zeile eingefügt -->
+    <!--<h3>Katzenstein via Grünberg</h3>-->
+    
+   <section class="info-box">
+      <h3>Tourenbeschreibung</h3>
+      <ol>
+        <li>
+            <strong>Start am Parkplatz Weißenbach</strong>
+            <p>Von hier führt der Nikoloweg (Weg Nr. 820) in den Wald.</p>
+            <p>Nach ca. 1km Gehweg zweigt der Weg nach rechts ab</p>
+        </li>
+        <li>
+            <strong>Aufstieg</strong>
+            <p>Der Weg steigt moderat an.</p>
+            <p>Man passiert zwei leicht versicherte Stellen, bei denen etwas Vorsicht geboten ist.</p>
+            <p>Anschließend verlässt man den Wald und durchquert felsiges teilweise seilversichtertes Gelände.</p>
+            <p>Bei der Abzweigung angekommen kann man noch schnell (10min) zum Schoberstein abbiegen. Da auf diesem Gipfel allerdings immer sehr viel Verkehr herscht, entschied ich mich gleich zum, um ein vielfaches ruhigeren Gipfel des Mahdlgupfs, zu gehen.</p>
+            <p>Hier führt der Weg erneut durch bewaldetes Gebiet und schon nach kurzer Zeit hat man den Gipfel erreicht.<p>
+            <p>Wer noch genügend Kraft hat, kann auch noch zum Dachsteinblick oder zur Brennerin weiterwandern<p>
+        </li>
+        <li>
+            <strong>Rückweg</strong>
+            <p>Erfolgt über den gleichen Weg</p>
+        </li>
+      </ol>
+    
+    
+    
+    <!-- Weitere Details / Highlights -->
+    
+      <h4>Details der Tour</h4>
+      <ul>
+        <li>Parkmöglichkeit: Parkplatz Weißenbach (Ischler Str. 33, 4854 Weißenbach am Attersee)</li>
+        <li>Höhenmeter: 820 m</li>
+        <li>Länge: 7.8 km</li>
+        <li>Dauer Fortgeschritten: 2 Stunden</li>
+        <li>Dauer Anfänger: 3-3.5 Stunden</li>
+        <li>Schwierigkeit: leicht, Trittsicherheit erforderlich</li>
+        <li>Beste Jahreszeit: Frühling - Herbst</li>
+        <li>Einkehrmöglichkeit: Keine</li>
+      </ul>
+   
+    <!-- --------------------------------------------------------------- Tag2 --------------------------->
+
+    <!-- ------------------------------------------------------ Karte------------------------------------------->    
+    <!-- Start einfügen GPX Datei </-->
+   <section>
+     <h4>Kartenansicht</h4>
+     <div id="map" style="height: 400px; width: 100%; border-radius: 12px;"></div>
+
+     <script>
+       // Karte initialisieren
+       const map = L.map('map');
+
+       // OpenStreetMap Tiles
+       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+         attribution: '&copy; OpenStreetMap-Mitwirkende'
+       }).addTo(map);
+
+       // Alle geladenen Bounds sammeln
+       const group = new L.featureGroup();
+
+       // Mehrere GPX-Dateien einbinden
+       const tracks = [
+         "assets/Mahdlgupf/Mahdlgupf.gpx"
+       ];
+
+       tracks.forEach(file => {
+         new L.GPX(file, { async: true,marker_options: {startIconUrl: '',  // kein Start-Icon
+    																										endIconUrl: '',    // kein End-Icon
+    																									shadowUrl: ''  }    // kein Schatten
+  											 })
+           .on('loaded', function(e) {
+             group.addLayer(e.target); // jeden Track zur FeatureGroup hinzufügen
+             map.fitBounds(group.getBounds()); // Karte auf alle Tracks anpassen
+           })
+           .addTo(map);
+       });
+     </script>
+   </section>
+    <!-- Ende einfügen GPS Datei </-->
+    <!-- ------------------------------------------------------ Button zum Download der GPX-Datei------------------------------------------->  
+    <!-- es wird 1 Button angezeigt -->
+ <h4>Downloads</h4>
+  <div class="download-container">
+    <a href="assets/Mahdlgupf/Mahdlgupf.gpx" download class="download-btn">GPX</a>
+    <a href="assets/Mahdlgupf/Mahdlgupf.kml" download class="download-btn">KML</a>
+  </div>
+    
+    <!-- ------------------------------------------------------ Bilder------------------------------------------>  
+
+    <section>
+      <h4>Galerie</h4>
+      <button id="openGallery">Galerie öffnen</button>
+      <div id="gallery" class="hidden"></div>
+    </section>
+    
+   <script>
+      const gallery = document.getElementById('gallery');
+      const button = document.getElementById('openGallery');
+
+      button.addEventListener('click', async () => {
+          if (!gallery.dataset.loaded) {  // Bilder nur einmal laden
+              const response = await fetch('assets/Mahdlgupf/images.json');
+              const images = await response.json();
+
+              images.forEach(src => {
+                  const img = document.createElement('img');
+                  img.src = src;
+                  img.alt = "Tourbild";
+                  gallery.appendChild(img);
+              });
+              gallery.dataset.loaded = true;
+          }
+          gallery.classList.toggle('hidden'); // zeigt/versteckt Galerie
+      });
+   </script>
+    
+    <!-- ------------------------------------------------------ Ende-------------------------------------------> 
+    <!-- Button zurück zur Tourenübersicht -->
+    <div class="tour-liste">
+      <a class="btn" href="touren.html">Zurück zu allen Touren</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 – Meine Bergabenteuer</p>
+  </footer>
+</body>
+</html>
