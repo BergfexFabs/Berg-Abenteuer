@@ -34,9 +34,15 @@ body::before {
 /* Seiten-spezifische Hintergrundbilder */
 body.geisswand { background-image: url('assets/Geisswand/Geisswand.jpg'); }
 body.Warscheneck { background-image: url('assets/Warscheneck/Bild1.jpg'); }
-body.katzenstein { background-image: url('assets/Katzenstein/Katzenstein.jpg'); }
+/*body.katzenstein { background-image: url('assets/Katzenstein/Katzenstein.jpg'); }*/
 body.Sonnstein { background-image: url('assets/Sonnstein/Bild1.jpg'); }
-
+body.katzenstein { 
+  background-image: url('assets/Katzenstein/Katzenstein.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 /* === Header === */
 header {
   color: white;
