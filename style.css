@@ -5,20 +5,25 @@ html, body {
   font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
   line-height: 1.7;
   color: #1e293b;
-  background-color: #f9fafb; /* Fallback */
+  background: transparent; /* wichtig: kein fixes body-Background */
 }
 
 body {
-  background-image: url('header.jpg'); /* Standardbild */
-  background-size: cover; /* proportional skalieren */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* fixiertes Hintergrundbild beim Scrollen */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-  z-index: 0;
+}
+
+/* Fixierter Hintergrund über html::before */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: var(--site-bg, url('header.jpg')) center/cover no-repeat;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
 }
 
 /* Overlay für etwas Abdunkelung */
@@ -32,17 +37,11 @@ body::before {
 }
 
 /* Seiten-spezifische Hintergrundbilder */
-body.geisswand { background-image: url('assets/Geisswand/Geisswand.jpg'); }
-body.Warscheneck { background-image: url('assets/Warscheneck/Bild1.jpg'); }
-/*body.katzenstein { background-image: url('assets/Katzenstein/Katzenstein.jpg'); }*/
-body.Sonnstein { background-image: url('assets/Sonnstein/Bild1.jpg'); }
-body.katzenstein { 
-  background-image: url('assets/Katzenstein/Katzenstein.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
+body.geisswand   { --site-bg: url('assets/Geisswand/Geisswand.jpg'); }
+body.Warscheneck { --site-bg: url('assets/Warscheneck/Bild1.jpg'); }
+body.Sonnstein   { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
+body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein.jpg'); }
+
 /* === Header === */
 header {
   color: white;
