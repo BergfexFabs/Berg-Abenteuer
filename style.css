@@ -20,14 +20,14 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 0;                     /* Kurzschreibweise für top/left/right/bottom: 0 */
+  inset: 0;                     /* top/right/bottom/left = 0 */
   z-index: -1;
   pointer-events: none;
   background-image: var(--site-bg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;       /* volle Höhe, nur links/rechts abgeschnitten */
-  background-color: #808080;
+  background-color: #808080;    /* grauer Rand, falls Bild kleiner */
   background-attachment: fixed; /* fixiert am Viewport */
 }
 
@@ -38,11 +38,12 @@ body.Sonnstein { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
 body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein.jpg'); }
 body.Mahdlgupf { --site-bg: url('assets/Mahdlgupf/Bild4.jpg'); }
 
-/* Große Bildschirme: Bild in Originalgröße, Ränder hellgrau */
+/* Kleine Bildschirme: Bild komplett sichtbar, nicht abschneiden */
 @media (max-width: 768px) {
   body::before {
-    background-size: contain;   /* ganzes Bild sichtbar */
-    background-color: #808080;  /* Streifen links/rechts */
+    background-size: contain;    /* alles sichtbar */
+    background-position: center top; /* optional: oben ausrichten */
+    background-color: #808080;   /* graue Streifen links/rechts */
   }
 }
 
