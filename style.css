@@ -20,17 +20,15 @@ body {
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;                     /* Kurzschreibweise für top/left/right/bottom: 0 */
   z-index: -1;
   pointer-events: none;
   background-image: var(--site-bg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;       /* füllt immer die Höhe → nur links/rechts abgeschnitten */
-  background-color: #808080;    /* falls Bild kleiner, Rand grau */
+  background-size: cover;       /* volle Höhe, nur links/rechts abgeschnitten */
+  background-color: #808080;
+  background-attachment: fixed; /* fixiert am Viewport */
 }
 
 /* Seiten-spezifische Hintergrundbilder */
