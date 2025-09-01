@@ -28,9 +28,9 @@ body::before {
   pointer-events: none;
   background-image: var(--site-bg);
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;       /* kleine/medium Screens füllen */
-  background-color: #f0f0f0;    /* Ränder hellgrau */
+  background-position: center center;
+  background-size: cover;       /* füllt immer die Höhe → nur links/rechts abgeschnitten */
+  background-color: #808080;    /* falls Bild kleiner, Rand grau */
 }
 
 /* Seiten-spezifische Hintergrundbilder */
@@ -41,12 +41,10 @@ body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein.jpg'); }
 body.Mahdlgupf { --site-bg: url('assets/Mahdlgupf/Bild4.jpg'); }
 
 /* Große Bildschirme: Bild in Originalgröße, Ränder hellgrau */
-@media (min-width: 1200px) {
+@media (max-width: 768px) {
   body::before {
-    background-size: auto;       /* Originalgröße, keine Skalierung auto*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #808080;  /* Ränder mittelgrau */
+    background-size: contain;   /* ganzes Bild sichtbar */
+    background-color: #808080;  /* Streifen links/rechts */
   }
 }
 
