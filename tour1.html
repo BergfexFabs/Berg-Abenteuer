@@ -143,21 +143,9 @@
    </section>
 
     <!-- Ende einfügen GPS Datei </-->
-    <!-- ------------------------------------------------------ Button zum Download der GPX-Datei------------------------------------------->  
-    <!-- es werden 3 Buttons angezeigt -->
-    <section>
-  <h4>Downloads</h4>
-  <div class="download-container">
-    <a href="assets/Warscheneck/Gleinkersee-Zellerhütte.gpx" download class="download-btn">GPX Tag 1</a>
-    <a href="assets/Warscheneck/Tag2.gpx" download class="download-btn">GPX Tag 2</a>
-    <a href="assets/Warscheneck/Tag3.gpx" download class="download-btn">GPX Tag 3</a>
-    <a href="assets/Warscheneck/Tag1.kml" download class="download-btn">KML Tag 1</a>
-    <a href="assets/Warscheneck/Tag2.kml" download class="download-btn">KML Tag 2</a>
-    <a href="assets/Warscheneck/Tag3.kml" download class="download-btn">KML Tag 3</a>
-  </div>
-</section> 
-    
-    <!-- ------------------------------------------------------ Bilder-------------------------------------------> 
+
+    <!-- ------------------------------------------------------ Bilder -- Version mit Button zum öffnen der Galerie-------------------------------------------> 
+    <!--
     <section>
       <h4>Galerie</h4>
       <button id="openGallery">Galerie öffnen</button>
@@ -184,8 +172,42 @@
           gallery.classList.toggle('hidden'); // zeigt/versteckt Galerie
       });
    </script>
+    -->
+   <section>
+      <h4>Galerie</h4>
+      <div id="gallery"></div>
+   </section>
 
+   <script>
+     const gallery = document.getElementById('gallery');
 
+     // Lädt die Galerie sofort beim Laden der Seite
+     (async () => {
+         const response = await fetch('assets/Warscheneck/images.json');
+         const images = await response.json();
+
+         images.forEach(src => {
+             const img = document.createElement('img');
+             img.src = src;
+             img.alt = "Tourbild";
+             gallery.appendChild(img);
+         });
+     })();
+   </script>
+    <!-- ------------------------------------------------------ Button zum Download der GPX-Datei------------------------------------------->  
+    <!-- es werden 3 Buttons angezeigt -->
+    <section>
+  <h4>Downloads</h4>
+  <div class="download-container">
+    <a href="assets/Warscheneck/Gleinkersee-Zellerhütte.gpx" download class="download-btn">GPX Tag 1</a>
+    <a href="assets/Warscheneck/Tag2.gpx" download class="download-btn">GPX Tag 2</a>
+    <a href="assets/Warscheneck/Tag3.gpx" download class="download-btn">GPX Tag 3</a>
+    <a href="assets/Warscheneck/Tag1.kml" download class="download-btn">KML Tag 1</a>
+    <a href="assets/Warscheneck/Tag2.kml" download class="download-btn">KML Tag 2</a>
+    <a href="assets/Warscheneck/Tag3.kml" download class="download-btn">KML Tag 3</a>
+  </div>
+</section> 
+    
     
     <!-- ------------------------------------------------------ Ende-------------------------------------------> 
     <!-- Button zurück zur Tourenübersicht -->

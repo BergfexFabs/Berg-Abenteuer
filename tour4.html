@@ -108,6 +108,32 @@
      </script>
    </section>
     <!-- Ende einfügen GPS Datei </-->
+
+    
+    <!-- ------------------------------------------------------ Bilder------------------------------------------>  
+
+   <section>
+      <h4>Galerie</h4>
+      <div id="gallery"></div>
+   </section>
+
+   <script>
+     const gallery = document.getElementById('gallery');
+
+     // Lädt die Galerie sofort beim Laden der Seite
+     (async () => {
+         const response = await fetch('assets/Sonnstein/images.json');
+         const images = await response.json();
+
+         images.forEach(src => {
+             const img = document.createElement('img');
+             img.src = src;
+             img.alt = "Tourbild";
+             gallery.appendChild(img);
+         });
+     })();
+   </script>
+   
     <!-- ------------------------------------------------------ Button zum Download der GPX-Datei------------------------------------------->  
     <!-- es wird 1 Button angezeigt -->
  <h4>Downloads</h4>
@@ -115,36 +141,6 @@
     <a href="assets/Sonnstein/Sonnstein.gpx" download class="download-btn">GPX</a>
     <a href="assets/Sonnstein/Sonnstein.kml" download class="download-btn">KML</a>
   </div>
-    
-    <!-- ------------------------------------------------------ Bilder------------------------------------------>  
-
-    <section>
-      <h4>Galerie</h4>
-      <button id="openGallery">Galerie öffnen</button>
-      <div id="gallery" class="hidden"></div>
-    </section>
-    
-   <script>
-      const gallery = document.getElementById('gallery');
-      const button = document.getElementById('openGallery');
-
-      button.addEventListener('click', async () => {
-          if (!gallery.dataset.loaded) {  // Bilder nur einmal laden
-              const response = await fetch('assets/Sonnstein/images.json');
-              const images = await response.json();
-
-              images.forEach(src => {
-                  const img = document.createElement('img');
-                  img.src = src;
-                  img.alt = "Tourbild";
-                  gallery.appendChild(img);
-              });
-              gallery.dataset.loaded = true;
-          }
-          gallery.classList.toggle('hidden'); // zeigt/versteckt Galerie
-      });
-   </script>
-    
     <!-- ------------------------------------------------------ Ende-------------------------------------------> 
     <!-- Button zurück zur Tourenübersicht -->
     <div class="tour-liste">
