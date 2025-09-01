@@ -28,7 +28,7 @@ body::before {
   pointer-events: none;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #999; /* Mittelgrau als Overlay */
+  background-color: #999; /* Mittelgrau */
   background-image: var(--site-bg);
 }
 
@@ -46,7 +46,7 @@ body::before {
   }
 }
 
-/* === Seitenspezifische Bilder === */
+/* === Seitenspezifische Body-Bilder === */
 body.geisswand { --site-bg: url('assets/Geisswand/Geisswand.jpg'); }
 body.Warscheneck { --site-bg: url('assets/Warscheneck/Bild1.jpg'); }
 body.Sonnstein { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
@@ -60,7 +60,20 @@ header {
   text-align: center;
   position: relative;
   z-index: 1;
+
+  /* Header-Hintergrund */
+  background-image: url('header.jpg'); /* Standard Headerbild */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+/* Seiten-spezifische Header-Bilder */
+body.geisswand header { background-image: url('assets/Geisswand/header.jpg'); }
+body.Warscheneck header { background-image: url('assets/Warscheneck/header.jpg'); }
+body.Sonnstein header { background-image: url('assets/Sonnstein/header.jpg'); }
+body.katzenstein header { background-image: url('assets/Katzenstein/header.jpg'); }
+body.Mahdlgupf header { background-image: url('assets/Mahdlgupf/header.jpg'); }
 
 header > * {
   position: relative;
