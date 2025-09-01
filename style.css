@@ -16,7 +16,7 @@ body {
   --site-bg: url('header.jpg'); /* Standardbild */
 }
 
-/* Hintergrundbild unter allen Inhalten */
+/* === Hintergrundbild unter allen Inhalten === */
 body::before {
   content: "";
   position: fixed;
@@ -29,7 +29,8 @@ body::before {
   background-image: var(--site-bg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; /* deckt Header + Body ab */
+  background-size: cover;       /* Standard: Bildschirm füllen */
+  background-color: #f0f0f0;    /* Fallback für Ränder */
 }
 
 /* Seiten-spezifische Hintergrundbilder */
@@ -38,6 +39,16 @@ body.Warscheneck { --site-bg: url('assets/Warscheneck/Bild1.jpg'); }
 body.Sonnstein { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
 body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein.jpg'); }
 body.Mahdlgupf { --site-bg: url('assets/Mahdlgupf/Bild4.jpg'); }
+
+/* Große Bildschirme: Bild nicht skalieren, Ränder hellgrau */
+@media (min-width: 1200px) {
+  body::before {
+    background-size: auto;       /* Originalgröße beibehalten */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f0f0f0;  /* Ränder hellgrau */
+  }
+}
 
 /* === Header transparent === */
 header {
