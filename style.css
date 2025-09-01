@@ -5,7 +5,7 @@ html, body {
   font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
   line-height: 1.7;
   color: #1e293b;
-  background: transparent;
+  background: transparent; /* wichtig: kein fixes body-Background */
 }
 
 body {
@@ -15,61 +15,40 @@ body {
   position: relative;
 }
 
-/* Seiten-spezifische Hintergrundbilder */
-body.geisswand   { --site-bg: url('assets/Geisswand/Geisswand_1920.jpg'); }
-body.Warscheneck { --site-bg: url('assets/Warscheneck/Bild1_1920.jpg'); }
-body.Sonnstein   { --site-bg: url('assets/Sonnstein/Bild1_1920.jpg'); }
-body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein_1920.jpg'); }
-body.Mahdlgupf   { --site-bg: url('assets/Mahdlgupf/Bild4_1920.jpg'); }
+/* Fixierter Hintergrund über html::before */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #999; /* Mittelgrauer Hintergrund */
+}
 
-/* === Desktop / Tablet (>768px) === */
+/* Desktop */
 @media (min-width: 769px) {
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
+  html::before {
     background-image: var(--site-bg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;    /* scharf */
-    background-color: #9ca3af;
-    z-index: -1;
-    pointer-events: none;
-    will-change: transform;
-  }
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.25);
-    z-index: -1;
-    pointer-events: none;
+    background-size: contain;  /* skaliert ohne unscharf zu werden */
   }
 }
 
-/* === Mobile / kleine Bildschirme (≤768px) === */
+/* Mobile */
 @media (max-width: 768px) {
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
+  html::before {
     background-image: var(--site-bg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;      /* füllt Bildschirm */
-    z-index: -1;
-    pointer-events: none;
-    will-change: transform;
-  }
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.25);
-    z-index: -1;
-    pointer-events: none;
+    background-size: cover; /* füllt Bildschirm */
   }
 }
+
+/* Seitenspezifische Hintergrundbilder */
+body.geisswand { --site-bg: url('assets/Geisswand/Geisswand.jpg'); }
+body.Warscheneck { --site-bg: url('assets/Warscheneck/Bild1.jpg'); }
+body.Sonnstein { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
+body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein.jpg'); }
+body.Mahdlgupf { --site-bg: url('assets/Mahdlgupf/Bild4.jpg'); }
 
 /* === Header === */
 header {
@@ -80,7 +59,10 @@ header {
   z-index: 1;
 }
 
-header > * { position: relative; z-index: 2; }
+header > * {
+  position: relative;
+  z-index: 2;
+}
 
 header h1 {
   margin: 0 0 15px;
@@ -137,8 +119,15 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-/* === Buttons & Download Buttons === */
-.tour-liste { display: flex; flex-direction: column; gap: 14px; max-width: 420px; margin: 40px auto; }
+/* === Buttons für Touren === */
+.tour-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+  margin: 40px auto;
+}
+
 .btn {
   display: block;
   background: linear-gradient(135deg, #0ea5e9, #0284c7);
@@ -151,9 +140,20 @@ nav a:hover {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   transition: all 0.3s ease;
 }
-.btn:hover { background: linear-gradient(135deg, #1e293b, #334155); transform: scale(1.03); }
 
-.download-container { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 12px; }
+.btn:hover {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  transform: scale(1.03);
+}
+
+/* === Download Buttons === */
+.download-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
 .download-btn {
   display: inline-block;
   padding: 12px 24px;
@@ -166,10 +166,21 @@ nav a:hover {
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-.download-btn:hover { background: linear-gradient(135deg, #0056b3, #1e293b); transform: translateY(-2px); }
 
-/* === Galerie (Lazy-Loading vorbereitet) === */
-#gallery { display: flex; flex-wrap: wrap; justify-content: center; margin: 30px auto; gap: 16px; }
+.download-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #1e293b);
+  transform: translateY(-2px);
+}
+
+/* === Galerie === */
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px auto;
+  gap: 16px;
+}
+
 #gallery img {
   width: 220px;
   height: 220px;
@@ -178,15 +189,46 @@ nav a:hover {
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-#gallery img:hover { transform: scale(1.08); box-shadow: 0 6px 14px rgba(0,0,0,0.2); }
+
+#gallery img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
 
 /* === Überschriften === */
-h2 { font-size: 2rem; color: #0ea5e9; margin: 20px 0 16px; text-align: center; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
-h3 { font-size: 1.4rem; color: #0284c7; margin: 16px 0 12px; font-weight: 600; border-bottom: 2px solid #0ea5e9; padding-bottom: 4px; }
-h4 { font-size: 1.2rem; color: #0b1220; margin: 14px 0 10px; font-weight: 600; text-align: left; line-height: 1.3; }
+h2 {
+  font-size: 2rem;
+  color: #0ea5e9;
+  margin: 20px 0 16px;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
 
-/* === Über-mich Bild === */
-.tour-image { margin: 20px 0; text-align: center; }
+h3 {
+  font-size: 1.4rem;
+  color: #0284c7;
+  margin: 16px 0 12px;
+  font-weight: 600;
+  border-bottom: 2px solid #0ea5e9;
+  padding-bottom: 4px;
+}
+
+h4 {
+  font-size: 1.2rem;
+  color: #0b1220;
+  margin: 14px 0 10px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.3;
+}
+
+/* === für Bild bei Über mich === */
+.tour-image {
+  margin: 20px 0;
+  text-align: center;
+}
+
 .tour-image img {
   max-width: 100%;
   max-height: 600px;
@@ -198,17 +240,47 @@ h4 { font-size: 1.2rem; color: #0b1220; margin: 14px 0 10px; font-weight: 600; t
   margin: 20px auto;
 }
 
-/* === Fußzeile === */
-footer { margin-top: auto; padding: 20px; background: #1e293b; text-align: center; font-size: 0.9rem; color: #e2e8f0; }
+/* === Fußzeile immer unten === */
+footer {
+  margin-top: auto;
+  padding: 20px;
+  background: #1e293b;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+}
 
 /* === Responsive Anpassungen === */
 @media (max-width: 768px) {
-  header { padding: 60px 20px; }
-  header h1 { font-size: 2rem; }
+  header {
+    padding: 60px 20px;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
 
-  .info-box { padding: 15px; margin: 15px 10px; }
-  .tour-liste { max-width: 100%; margin: 20px 10px; }
-  .btn, .download-btn { font-size: 14px; padding: 10px; }
-  nav { flex-direction: column; gap: 10px; }
-  #gallery img { width: 80vw; height: auto; }
+  .info-box {
+    padding: 15px;
+    margin: 15px 10px;
+  }
+
+  .tour-liste {
+    max-width: 100%;
+    margin: 20px 10px;
+  }
+
+  .btn, .download-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #gallery img {
+    width: 80vw;
+    height: auto;
+  }
 }
