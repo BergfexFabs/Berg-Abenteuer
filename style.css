@@ -20,7 +20,9 @@ html::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: var(--site-bg, url('header.jpg')) center/cover no-repeat;
+  background: var(--site-bg, url('header.jpg')) center no-repeat;
+  background-size: contain;       /* Bild bleibt scharf */
+  background-color: #9ca3af;      /* mittelgrau für Ränder */
   z-index: -1;
   pointer-events: none;
   will-change: transform;
@@ -31,24 +33,19 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: var(--site-bg, url('header.jpg')) center/cover no-repeat;
+  background: rgba(0,0,0,0.25);   /* halbtransparentes Schwarz */
   z-index: -1;
   pointer-events: none;
   will-change: transform;
 }
 
-/* Spezielles Hintergrund-Verhalten für Mahdlgupf 
-body.Mahdlgupf::before {
-  background: url('assets/Mahdlgupf/Bild4.jpg') top center no-repeat;
-  background-size: contain; 
-}
-*/
 /* Seiten-spezifische Hintergrundbilder */
 body.geisswand   { --site-bg: url('assets/Geisswand/Geisswand.jpg'); }
 body.Warscheneck { --site-bg: url('assets/Warscheneck/Bild1.jpg'); }
 body.Sonnstein   { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
 body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein.jpg'); }
-body.Mahdlgupf { --site-bg: url('assets/Mahdlgupf/Bild4.jpg'); }
+body.Mahdlgupf   { --site-bg: url('assets/Mahdlgupf/Bild4.jpg'); }
+
 /* === Header === */
 header {
   color: white;
@@ -221,6 +218,7 @@ h4 {
   text-align: left;
   line-height: 1.3;
 }
+
 /* === für Bild bei Über mich === */
 .tour-image {
   margin: 20px 0;
@@ -237,6 +235,7 @@ h4 {
   display: block;
   margin: 20px auto;  /* zentriert das Bild */
 }
+
 /* === Fußzeile immer unten === */
 footer {
   margin-top: auto;
