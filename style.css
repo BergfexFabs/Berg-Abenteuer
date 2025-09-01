@@ -22,27 +22,49 @@ body.Sonnstein   { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
 body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein.jpg'); }
 body.Mahdlgupf   { --site-bg: url('assets/Mahdlgupf/Bild4.jpg'); }
 
-/* Fixierter Hintergrund über body::before */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: var(--site-bg, url('header.jpg')) center no-repeat;
-  background-size: contain;       /* Bild bleibt scharf */
-  background-color: #9ca3af;      /* mittelgrau für Ränder */
-  z-index: -1;
-  pointer-events: none;
-  will-change: transform;
+/* === Hintergrund für Desktop / Tablet (contain, Mittelgrau) === */
+@media (min-width: 769px) {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--site-bg, url('header.jpg')) center no-repeat;
+    background-size: contain;       /* Bild bleibt scharf */
+    background-color: #9ca3af;      /* Mittelgrau für Ränder */
+    z-index: -1;
+    pointer-events: none;
+    will-change: transform;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);   /* halbtransparentes Overlay */
+    z-index: -1;
+    pointer-events: none;
+  }
 }
 
-/* Overlay für Abdunkelung */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.25);   /* halbtransparentes Schwarz */
-  z-index: -1;
-  pointer-events: none;
+/* === Hintergrund für Mobile / kleine Bildschirme (cover) === */
+@media (max-width: 768px) {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--site-bg, url('header.jpg')) center/cover no-repeat;
+    background-color: #9ca3af;      /* optional, falls Ränder sichtbar sind */
+    z-index: -1;
+    pointer-events: none;
+    will-change: transform;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);   /* Overlay */
+    z-index: -1;
+    pointer-events: none;
+  }
 }
 
 /* === Header === */
