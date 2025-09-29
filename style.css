@@ -101,7 +101,6 @@ nav a {
   padding: 10px 16px;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 16px; /* Basisgröße */
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   border: 1px solid #e5e7eb;
@@ -112,15 +111,6 @@ nav a:hover {
   color: white;
   transform: translateY(-2px);
 }
-
-/* Mobile Optimierung */
-@media (max-width: 768px) {
-  nav a {
-    font-size: 18px;     /* größere Schrift auf Handy */
-    padding: 14px 20px;  /* mehr Platz für Finger */
-  }
-}
-
 
 /* === Buttons für Touren === */
 .tour-liste {
