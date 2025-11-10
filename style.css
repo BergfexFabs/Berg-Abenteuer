@@ -38,6 +38,7 @@ body.Sonnstein { --site-bg: url('assets/Sonnstein/Bild1.jpg'); }
 body.katzenstein { --site-bg: url('assets/Katzenstein/Katzenstein.jpg'); }
 body.Mahdlgupf { --site-bg: url('assets/Mahdlgupf/Bild4.jpg'); }
 body.Bischofsmuetze { --site-bg: url('assets/Bischofsmütze/22.jpg'); }
+body.Schoenberg { --site-bg: url('assets/Schoenberg/10.jpg'); }
 
 /* Kleine Bildschirme: Bild komplett sichtbar, nicht abschneiden 
 @media (max-width: 768px) {
