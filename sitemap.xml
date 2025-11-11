@@ -56,8 +56,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.alpenfabs.at/Warscheneneck</loc>
-    <lastmod>2025-11-06</lastmod>
+    <loc>https://www.alpenfabs.at/Warscheneck</loc>
+    <lastmod>2025-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.alpenfabs.at/AlleTouren</loc>
+    <lastmod>2025-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.alpenfabs.at/Schoenberg</loc>
+    <lastmod>2025-11-11</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
+
